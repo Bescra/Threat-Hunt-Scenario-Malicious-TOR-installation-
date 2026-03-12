@@ -99,6 +99,10 @@ DeviceNetworkEvents
 
 ---
 
+### 5. Further malicious activity on the host
+Upon further analysis of the initial query, a file named proxy-server-portable.zip was observed being downloaded via Microsoft Edge. No evidence was found indicating that the file was subsequently extracted or executed.
+<img width="642" height="578" alt="Screenshot 2026-03-11 121336" src="https://github.com/user-attachments/assets/1b443db5-bc7f-4a9e-8365-7defd445509d" />
+
 ## Chronological Event Timeline 
 
 ### 1. File Download - TOR Installer
