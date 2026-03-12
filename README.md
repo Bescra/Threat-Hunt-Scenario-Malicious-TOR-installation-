@@ -39,6 +39,8 @@ DeviceFileEvents
 ```
 <img width="450" height="500" alt="Screenshot 2026-03-11 105056" src="https://github.com/user-attachments/assets/e16d8462-1198-4a0f-bb79-cfed422e8754" />
 <img width="450" height="140" alt="Screenshot 2026-03-11 105120" src="https://github.com/user-attachments/assets/a3f3b036-0baf-406a-bf93-78c98641e9a9" />
+<img width="631" height="345" alt="image" src="https://github.com/user-attachments/assets/1519dae2-6d0e-4a48-bc52-e1061319d1b3" />
+
 
 
 
