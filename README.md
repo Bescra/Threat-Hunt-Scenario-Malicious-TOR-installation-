@@ -37,7 +37,7 @@ DeviceFileEvents
 | where FileName has_any ("tor.exe", "firefox.exe")
 | project Timestamp, DeviceName, ActionType, FileName, FolderPath, SHA256, Account = InitiatingProcessAccountName
 ```
-<img width="645" height="692" alt="Screenshot 2026-03-11 105056" src="https://github.com/user-attachments/assets/e16d8462-1198-4a0f-bb79-cfed422e8754" />
+<img width="450" height="500" alt="Screenshot 2026-03-11 105056" src="https://github.com/user-attachments/assets/e16d8462-1198-4a0f-bb79-cfed422e8754" />
 <img width="450" height="140" alt="Screenshot 2026-03-11 105120" src="https://github.com/user-attachments/assets/a3f3b036-0baf-406a-bf93-78c98641e9a9" />
 
 
