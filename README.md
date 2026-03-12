@@ -41,25 +41,24 @@ DeviceFileEvents
 <img width="450" height="140" alt="Screenshot 2026-03-11 105120" src="https://github.com/user-attachments/assets/a3f3b036-0baf-406a-bf93-78c98641e9a9" />
 <img width="631" height="345" alt="image" src="https://github.com/user-attachments/assets/1519dae2-6d0e-4a48-bc52-e1061319d1b3" />
 
-
-
-
 ---
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-Searched for any `ProcessCommandLine` that contained the string "tor-browser-windows-x86_64-portable-15.0.7.exe". Based on the logs returned, at `2024-11-08T22:16:47.4484567Z`, an employee on the "threat-hunt-lab" device ran the file `tor-browser-windows-x86_64-portable-15.0.7.exe` from their Downloads folder, using a command that triggered a silent installation.
+Searched for any `ProcessCommandLine` that contained the string "tor-browser-windows-x86_64-portable-15.0.7.exe". Based on the logs returned, at `2024-11-08T22:16:47.4484567Z`, an employee on the "Bescra-threathu" device ran the file `tor-browser-windows-x86_64-portable-15.0.7.exe` from their Downloads folder, using a command that triggered a silent installation.
 
 **Query used to locate event:**
 
 ```kql
 
-DeviceProcessEvents  
-| where DeviceName == "threat-hunt-lab"  
-| where ProcessCommandLine contains "tor-browser-windows-x86_64-portable-15.0.7.exe"  
-| project Timestamp, DeviceName, AccountName, ActionType, FileName, FolderPath, SHA256, ProcessCommandLine
+DeviceProcessEvents
+| where DeviceName contains "Bescra-Threathu"
+| where ProcessCommandLine contains "tor-browser-windows"
+| project Timestamp, DeviceName, ActionType, FileName, ProcessCommandLine
+| sort by Timestamp desc
+
 ```
-<img width="1212" alt="image" src="https://github.com/user-attachments/assets/b07ac4b4-9cb3-4834-8fac-9f5f29709d78">
+<img width="1240" height="258" alt="Screenshot 2026-03-11 113550" src="https://github.com/user-attachments/assets/bee9f71d-3cbc-494d-912c-1217d2db6e6d" />
 
 ---
 
