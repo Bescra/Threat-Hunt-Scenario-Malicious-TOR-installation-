@@ -27,17 +27,14 @@ Management suspects that some employees may be using TOR browsers to bypass netw
 
 ### 1. Searched the `DeviceFileEvents` Table
 
-Searched for any file that had the string "tor" in it and discovered what looks like the user "employee" downloaded a TOR installer, did something that resulted in many TOR-related files being copied to the desktop, and the creation of a file called `tor-shopping-list.txt` on the desktop at `2024-11-08T22:27:19.7259964Z`. These events began at `2024-11-08T22:14:48.6065231Z`.
+Searched for any file that had the string "tor" in it and discovered what looks like the user "Bescra" downloaded a TOR installer, did something that resulted in many TOR-related files being copied to the desktop, and the creation of a file called `THIS.txt` on the desktop at `2026-03-11 09:41:12`. These events began at `11 Mar 2026 at 08:53:03`.
 
 **Query used to locate events:**
 
 ```kql
-DeviceFileEvents  
-| where DeviceName == "threat-hunt-lab"  
-| where InitiatingProcessAccountName == "employee"  
-| where FileName contains "tor"  
-| where Timestamp >= datetime(2024-11-08T22:14:48.6065231Z)  
-| order by Timestamp desc  
+DeviceFileEvents
+| where DeviceName contains "Bescra-Threathu"
+| where FileName has_any ("tor.exe", "firefox.exe")
 | project Timestamp, DeviceName, ActionType, FileName, FolderPath, SHA256, Account = InitiatingProcessAccountName
 ```
 <img width="1212" alt="image" src="https://github.com/user-attachments/assets/71402e84-8767-44f8-908c-1805be31122d">
@@ -149,7 +146,12 @@ DeviceNetworkEvents
 
 ## Summary
 
-The user "Bescra" on the "bescra-threathu" device initiated and completed the installation of the TOR browser. They proceeded to launch the browser, establish connections within the TOR network, and created various files related to TOR on their desktop, including a file named `THIS.txt`. This sequence of activities indicates that the user actively installed, configured, and used the TOR browser, likely for anonymous browsing purposes, with possible documentation in the form of the "A list" file.
+The investigation revealed that the user intentionally downloaded and installed the Tor Browser portable version using a silent installation method.
+After installation, the user launched Tor and successfully established connections to the Tor network. The user remained active on the network for approximately 15 minutes, during which multiple encrypted connections to external IP addresses were observed.
+During the session, the user created and modified a text file named THIS.txt, which contained approximately 1802 bytes of data. The contents of this file could not be recovered through Defender telemetry.
+Shortly afterward, the user downloaded an additional archive named proxy-server-portable.zip, potentially indicating an attempt to use additional anonymity or traffic routing tools.
+Both Tor usage and proxy server tools violate company acceptable use policies, as they enable users to bypass corporate monitoring and network controls.
+The endpoint should undergo further investigation through a comprehensive digital forensic analysis to identify any additional evidence relevant to the incident, particularly regarding the creation and modification of the file THIS.txt. This procedure will be performed by a more in depth by digital forensics team.
 
 ---
 
